@@ -5,6 +5,8 @@ import { styled } from "@mui/material/styles";
 
 import { Routes, Route } from "react-router-dom";
 
+import Movies from "./components/movies-list";
+
 import {
   createTheme,
   responsiveFontSizes,
@@ -12,7 +14,7 @@ import {
 } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
-// display list of movies
+// display list of movies (done)
 // display details of movies
 
 let theme = createTheme();
@@ -26,16 +28,11 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function App() {
+function App() {
   return (
     <div>
-      <ThemeProvider
-        theme={theme}
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Typography variant="h4">Your Lastest Movies!</Typography>
+      <ThemeProvider theme={theme}>
+        <Typography variant="h4">Popular Movies!</Typography>
       </ThemeProvider>
 
       <Stack
@@ -43,13 +40,11 @@ export default function App() {
         justifyContent="center"
         alignItems="center"
         spacing={2}
-      >
-        <Item>Item 1</Item>
-        <Item>Item 2</Item>
-        <Item>Item 3</Item>
-        <Item>Item 4</Item>
-        <Item>Item 5</Item>
-      </Stack>
+      ></Stack>
+      <Routes>
+        <Route path="/" exact element={<Movies />} />
+      </Routes>
     </div>
   );
 }
+export default App;
