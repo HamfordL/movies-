@@ -8,20 +8,20 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 
-const MovieList = () => {
-  const [movies, setMovies] = useState([]);
+const TopRated = () => {
+  const [topRated, setTopRated] = useState([]);
   const navigateTo = useNavigate();
 
   useEffect(() => {
-    if (!movies.length) {
+    if (!topRated.length) {
       fetch(
-        "https://api.themoviedb.org/3/movie/popular?api_key=54dc11f42188e386e37add6996cbee5a&language=en-US&page=1"
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=54dc11f42188e386e37add6996cbee5a&language=en-US&page=1"
       )
         .then((response) => response.json())
-        .then((data) => setMovies(data.results));
+        .then((data) => setTopRated(data.results));
     }
   });
-  if (!movies.length) {
+  if (!topRated.length) {
     return <CircularProgress />;
   }
 
@@ -29,7 +29,7 @@ const MovieList = () => {
     <Stack>
       <Box padding={5}>
         <Box sx={{ width: 550, height: 650, overflowY: "scroll" }}>
-          {movies.map((movie) => (
+          {topRated.map((movie) => (
             <Grid container key={movie.original_title}>
               {movie.original_title}
 
@@ -46,4 +46,4 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+export default TopRated;

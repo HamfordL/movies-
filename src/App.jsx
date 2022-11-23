@@ -6,6 +6,8 @@ import { Routes, Route } from "react-router-dom";
 
 import Movies from "./components/movies-list";
 import MovieDetail from "./components/movies-details";
+import NowPlaying from "./components/now-playing";
+import TopRated from "./components/top-rated";
 
 import {
   createTheme,
@@ -14,29 +16,43 @@ import {
 } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
-// display list of movies (done)
-// display details of movies
-
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 function App() {
   return (
     <div>
-      <ThemeProvider theme={theme}>
-        <Typography variant="h4"> Popular Movies!</Typography>
-      </ThemeProvider>
-
       <Stack
         direction="row"
-        justifyContent="center"
-        alignItems="center"
+        justifyContent="left"
+        alignItems="left"
         spacing={2}
-      ></Stack>
-      <Routes>
-        <Route path="/" exact element={<Movies />} />
-        <Route path="/movie/:id" element={<MovieDetail />} />
-      </Routes>
+      >
+        <ThemeProvider theme={theme}>
+          <Typography variant="h4"> Popular Movies!</Typography>
+        </ThemeProvider>
+
+        <Routes>
+          <Route path="/" exact element={<Movies />} />
+          <Route path="/movie/:id" element={<MovieDetail />} />
+        </Routes>
+
+        <ThemeProvider theme={theme}>
+          <Typography variant="h4">Now Playing</Typography>
+        </ThemeProvider>
+
+        <Routes>
+          <Route path="/" element={<NowPlaying />} />
+        </Routes>
+
+        <ThemeProvider theme={theme}>
+          <Typography variant="h4">Top Rated</Typography>
+        </ThemeProvider>
+
+        <Routes>
+          <Route path="/" element={<TopRated />} />
+        </Routes>
+      </Stack>
     </div>
   );
 }
