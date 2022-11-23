@@ -4,10 +4,10 @@ import Stack from "@mui/material/Stack";
 
 import { Routes, Route } from "react-router-dom";
 
-import Movies from "./components/movies-list";
+import Movies from "./views/movies-list";
 import MovieDetail from "./components/movies-details";
-import NowPlaying from "./components/now-playing";
-import TopRated from "./components/top-rated";
+import NowPlaying from "./views/now-playing";
+import TopRated from "./views/top-rated";
 
 import {
   createTheme,
