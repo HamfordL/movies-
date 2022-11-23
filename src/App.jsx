@@ -1,11 +1,11 @@
 import * as React from "react";
-import Paper from "@mui/material/Paper";
+
 import Stack from "@mui/material/Stack";
-import { styled } from "@mui/material/styles";
 
 import { Routes, Route } from "react-router-dom";
 
 import Movies from "./components/movies-list";
+import MovieDetail from "./components/movies-details";
 
 import {
   createTheme,
@@ -20,19 +20,11 @@ import Typography from "@mui/material/Typography";
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(15),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
-
 function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Typography variant="h4">Popular Movies!</Typography>
+        <Typography variant="h4"> Popular Movies!</Typography>
       </ThemeProvider>
 
       <Stack
@@ -43,6 +35,7 @@ function App() {
       ></Stack>
       <Routes>
         <Route path="/" exact element={<Movies />} />
+        <Route path="/movie/:id" exact element={<MovieDetail />} />
       </Routes>
     </div>
   );
