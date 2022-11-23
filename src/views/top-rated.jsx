@@ -28,6 +28,8 @@ const TopRated = () => {
   return (
     <Stack>
       <Box padding={5}>
+        <h1>Top Rated</h1>
+        <br />
         <Box sx={{ width: 550, height: 650, overflowY: "scroll" }}>
           {topRated.map((movie) => (
             <Grid container key={movie.original_title}>

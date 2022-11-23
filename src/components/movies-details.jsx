@@ -39,9 +39,9 @@ const MovieDetails = () => {
       >
         Go back
       </Button>
-      <Box>
-        <Grid span={12}>{movie.overview}</Grid>
-      </Box>
+      <br />
+      <br />
+      <Box sx={{ width: 550 }}>{movie.overview}</Box>
     </div>
   );
 };
