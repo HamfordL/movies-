@@ -6,6 +6,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 import Grid from "@mui/material/Unstable_Grid2";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 
 const MovieDetails = () => {
   const urlParams = useParams();
@@ -18,14 +19,8 @@ const MovieDetails = () => {
       fetch(`
       https://api.themoviedb.org/3/movie/${urlParams.id}?api_key=54dc11f42188e386e37add6996cbee5a&language=en-US`)
         .then((res) => res.json())
-        .then((movieDetails) =>
-          fetch(movieDetails.genre_id.id.url).then((res) => res.json())
-        )
-        .then(([movieDetails]) => {
-          setMovie({
-            ...movieDetails,
-            details: movieDetails,
-          });
+        .then((movieDetails) => {
+          setMovie(movieDetails);
         });
     }
   });
@@ -37,19 +32,16 @@ const MovieDetails = () => {
   return (
     <div>
       <Button
+        variant="contained"
         onClick={() => {
-          alert("clicked");
           navigate(-1);
         }}
       >
         Go back
       </Button>
-
-      <Grid key={movie.overview} span={12}>
-        {movie.map((movieDetails) => (
-          <li key={movieDetails.overview}>{movieDetails.overview}</li>
-        ))}
-      </Grid>
+      <Box>
+        <Grid span={12}>{movie.overview}</Grid>
+      </Box>
     </div>
   );
 };

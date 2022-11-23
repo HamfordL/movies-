@@ -35,7 +35,7 @@ function App() {
       ></Stack>
       <Routes>
         <Route path="/" exact element={<Movies />} />
-        <Route path="/movie/:id" exact element={<MovieDetail />} />
+        <Route path="/movie/:id" element={<MovieDetail />} />
       </Routes>
     </div>
   );
