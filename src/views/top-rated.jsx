@@ -30,11 +30,18 @@ const TopRated = () => {
       <Box padding={5}>
         <h1>Top Rated</h1>
         <br />
-        <Box sx={{ width: 550, height: 650, overflowY: "scroll" }}>
+        <Box
+          sx={{
+            width: "100%",
+            height: 400,
+            overflowY: "auto",
+            columns: "600px",
+          }}
+        >
           {topRated.map((movie) => (
             <Grid container key={movie.original_title}>
               {movie.original_title}
-
+              <br />
               <img
                 src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
                 alt={movie.original_title}

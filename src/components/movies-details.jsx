@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 
 import Grid from "@mui/material/Unstable_Grid2";
+import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
@@ -31,17 +32,37 @@ const MovieDetails = () => {
   console.log(movie);
   return (
     <div>
-      <Button
-        variant="contained"
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        Go back
-      </Button>
-      <br />
-      <br />
-      <Box sx={{ width: 550 }}>{movie.overview}</Box>
+      <Container sx={{ height: "100vh" }}>
+        <br />
+        <br />
+        <Button
+          variant="contained"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          Go back
+        </Button>
+        <br />
+        <br />
+        <Grid sx={{ fontWeight: "bold", fontSize: 40 }}>
+          {movie.original_title}
+        </Grid>
+        <br />
+        <br />
+        <img
+          src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
+          alt={movie.original_title}
+        />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <Grid sx={{ fontWeight: "bold", fontSize: 20 }}>
+          <Box sx={{ width: "100%" }}>{movie.overview}</Box>
+        </Grid>
+      </Container>
     </div>
   );
 };

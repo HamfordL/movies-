@@ -28,9 +28,16 @@ const MovieList = () => {
   return (
     <Stack>
       <Box padding={5}>
-        <h1>Popular Movies!</h1>
+        <h1>Popular Movies</h1>
         <br />
-        <Box sx={{ width: 550, height: 650, overflowY: "scroll" }}>
+        <Box
+          sx={{
+            width: "100%",
+            height: 400,
+            overflowY: "auto",
+            columns: "600px",
+          }}
+        >
           {movies.map((movie) => (
             <Grid container key={movie.original_title}>
               {movie.original_title}

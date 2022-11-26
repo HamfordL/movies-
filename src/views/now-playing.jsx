@@ -30,7 +30,14 @@ const NowPlaying = () => {
       <Box padding={5}>
         <h1>Now Playing</h1>
         <br />
-        <Box sx={{ width: 550, height: 650, overflowY: "scroll" }}>
+        <Box
+          sx={{
+            width: "100%",
+            height: 400,
+            overflowY: "auto",
+            columns: "600px",
+          }}
+        >
           {nowPlaying.map((movie) => (
             <Grid container key={movie.original_title}>
               {movie.original_title}
