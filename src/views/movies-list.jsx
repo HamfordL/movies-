@@ -32,6 +32,8 @@ const MovieList = () => {
         <br />
         <Box
           sx={{
+            display: "line-flex",
+            flexDirection: "row",
             width: "100%",
             height: 400,
             overflowY: "auto",
@@ -40,13 +42,15 @@ const MovieList = () => {
         >
           {movies.map((movie) => (
             <Grid container key={movie.original_title}>
-              {movie.original_title}
-
-              <img
-                src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
-                alt={movie.original_title}
-                onClick={() => navigateTo(`/movie/${movie.id}`)}
-              />
+              <Box>
+                {movie.original_title}
+                <br />
+                <img
+                  src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
+                  alt={movie.original_title}
+                  onClick={() => navigateTo(`/movie/${movie.id}`)}
+                />
+              </Box>
             </Grid>
           ))}
         </Box>
